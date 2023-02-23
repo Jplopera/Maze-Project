@@ -12,6 +12,15 @@ SDL_Color convert_color(int hexa_value)
 
 SDL_Color select_wall_color(int map_x, int map_y)
 {
+	for(int x = 0; x < 64; x++)
+  	for(int y = 0; y < 64; y++)
+	{
+    	int xorcolor = (x * 256 / 64) ^ (y * 256 / 64);
+    	//int xcolor = x * 256 / 64;
+    	int ycolor = y * 256 / 64;
+    	int xycolor = y * 128 / 64 + x * 128 / 64;
+		texture[1][64 * y + x] = 65536 * 192 * (x % 16 && y % 16);
+	}
 	SDL_Color color;
 
 	if (worldMap[map_x][map_y] == 1)
